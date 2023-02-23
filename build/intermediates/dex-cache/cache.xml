@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="D:\03.SourceCode\PRJ_ChienFu\CompanyInfo2\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\26.0.0-alpha1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="33.0.0"
+        sha1="952944218ecedea1554a513dec0c14d570642843">
+        <dex dex="D:\03.SourceCode\PRJ_ChienFu\CompanyInfo2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-vector-drawable-26.0.0-alpha1_1f031515c3f806ccdc009d606168d71a25b1fe9d\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\03.SourceCode\PRJ_ChienFu\CompanyInfo2\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="33.0.0"
+        sha1="1385343cf3203c61e5ffd30e31342ee6f14a5a52">
+        <dex dex="D:\03.SourceCode\PRJ_ChienFu\CompanyInfo2\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_c4314c37dcd6b7478688f1326c1a22c9aa3a16d8\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\03.SourceCode\PRJ_ChienFu\CompanyInfo2\app\build\intermediates\exploded-aar\com.android.support\support-fragment\26.0.0-alpha1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="33.0.0"
+        sha1="18d31838aa4fcc768a8a0516e22cc13b94655d89">
+        <dex dex="D:\03.SourceCode\PRJ_ChienFu\CompanyInfo2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-fragment-26.0.0-alpha1_449d013aa868c54757566e34ce7c542d031663bf\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\03.SourceCode\PRJ_ChienFu\CompanyInfo2\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\26.0.0-alpha1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="33.0.0"
+        sha1="fcd01fd11233459f546c437ec927e9b61bf7caf1">
+        <dex dex="D:\03.SourceCode\PRJ_ChienFu\CompanyInfo2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-ui-26.0.0-alpha1_178eb1e75d639554a3ab503a672ece2df10c3004\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\03.SourceCode\PRJ_ChienFu\CompanyInfo2\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\26.0.0-alpha1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="33.0.0"
+        sha1="88246166d5afb106f532f6e6deae683c66b42c89">
+        <dex dex="D:\03.SourceCode\PRJ_ChienFu\CompanyInfo2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-26.0.0-alpha1_fe2015286bbb5466cd4ffe1136a87c200c4acab7\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\03.SourceCode\PRJ_ChienFu\CompanyInfo2\app\build\intermediates\exploded-aar\com.android.support\support-v4\26.0.0-alpha1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="33.0.0"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="D:\03.SourceCode\PRJ_ChienFu\CompanyInfo2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-26.0.0-alpha1_6ae5c5a88fafecb0220464f37ac21be9da4c80a2\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\03.SourceCode\PRJ_ChienFu\CompanyInfo2\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\26.0.0-alpha1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="33.0.0"
+        sha1="2e92aa0163544a804a0b34f169ca61801770839a">
+        <dex dex="D:\03.SourceCode\PRJ_ChienFu\CompanyInfo2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-utils-26.0.0-alpha1_aa9bef055e29a393ed1db0e55932f5a36f75aacb\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\isenw\AppData\Local\Android\Sdk\extras\android\m2repository\com\android\support\support-annotations\26.0.0-alpha1\support-annotations-26.0.0-alpha1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="33.0.0"
+        sha1="023ee503b631f69511e335a061ea008f8da60f40">
+        <dex dex="D:\03.SourceCode\PRJ_ChienFu\CompanyInfo2\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-26.0.0-alpha1_8bae5fb2ffbf7eac2f167e734b79e434da3e687f\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\03.SourceCode\PRJ_ChienFu\CompanyInfo2\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="33.0.0"
+        sha1="2aa323d32caa95c9148a3ebb463931e9381de173">
+        <dex dex="D:\03.SourceCode\PRJ_ChienFu\CompanyInfo2\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_cc0ca50fd9ebaa5c64db911639d3715a181c2818\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\03.SourceCode\PRJ_ChienFu\CompanyInfo2\app\build\intermediates\exploded-aar\com.android.support\support-compat\26.0.0-alpha1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="33.0.0"
+        sha1="8df0e365e40beb151bc42dee20817721a6cab7b0">
+        <dex dex="D:\03.SourceCode\PRJ_ChienFu\CompanyInfo2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-compat-26.0.0-alpha1_eb6988e9054390e1c91e1e83a503822385016401\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\03.SourceCode\PRJ_ChienFu\CompanyInfo2\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\26.0.0-alpha1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="33.0.0"
+        sha1="47471eb19df288158b00b8d9cfa41bce7373f5cc">
+        <dex dex="D:\03.SourceCode\PRJ_ChienFu\CompanyInfo2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-26.0.0-alpha1_e88612482ae20621dc7383315622cd40a9df9b55\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\03.SourceCode\PRJ_ChienFu\CompanyInfo2\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\26.0.0-alpha1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="33.0.0"
+        sha1="9935891f23923f39d002087085d9696568a9f657">
+        <dex dex="D:\03.SourceCode\PRJ_ChienFu\CompanyInfo2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-media-compat-26.0.0-alpha1_593e29568fb9d60bf01ccb043bca47bdbd623aaa\classes.dex" />
+    </item>
+
+</items>
