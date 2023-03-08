@@ -18,7 +18,17 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
+import java.io.IOException;
+
+import okhttp3.MediaType;
+import okhttp3.RequestBody;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
  * Created by isenw on 2023/2/23.
@@ -26,10 +36,15 @@ import java.io.FileWriter;
 
 public class SecondActivity extends AppCompatActivity {
 
-    private static final int MY_PERMISSIONS_REQUEST_WRITE_EXTERNAL_STORAGE = 1 ;
     private TextView tvResult;
     private Button btnSendEmail;
     private Button btnExport;
+
+    private static Retrofit retrofit = null;
+
+    private SharedPreferences pref = getSharedPreferences("data", MODE_PRIVATE);
+    private String name = pref.getString("name", "");
+    private String phone = pref.getString("phone", "");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,79 +55,70 @@ public class SecondActivity extends AppCompatActivity {
         btnSendEmail = (Button)findViewById(R.id.btnSendEmail);
         btnExport = (Button)findViewById(R.id.btnExport);
 
-        SharedPreferences pref = getSharedPreferences("data", MODE_PRIVATE);
-        String name = pref.getString("name", "");
-        String phone = pref.getString("phone", "");
-
         tvResult.setText("Name: " + name + "\nPhone: " + phone);
-
         btnSendEmail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // TODO: Send email
-                Intent emailIntent = new Intent(Intent.ACTION_SENDTO);
-                emailIntent.setData(Uri.parse("mailto:"));
-                emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Company Information");
-                emailIntent.putExtra(Intent.EXTRA_TEXT, tvResult.getText().toString());
-                startActivity(Intent.createChooser(emailIntent, "Send email..."));
+                sendmail();
             }
         });
 
         btnExport.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (ContextCompat.checkSelfPermission(SecondActivity.this,
-                        Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-                    Log.d("MyApp", "Requesting permission to write to external storage");
-
-                    ActivityCompat.requestPermissions(SecondActivity.this,
-                            new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
-                            MY_PERMISSIONS_REQUEST_WRITE_EXTERNAL_STORAGE);
-                    Log.d("MyApp", "Requesting permission to write to external storage");
-
-                } else {
-                    Log.d("MyApp", "Permission already granted");
-                    // Permission has already been granted
-                    // TODO: Export data to .csv file
-                    exportData();
-                }
+                // TODO: Export data to Synology Drive
+                exportSynologyDrive();
             }
         });
     }
 
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        switch (requestCode) {
-            case MY_PERMISSIONS_REQUEST_WRITE_EXTERNAL_STORAGE:
-                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    Log.d("MyApp", "Permission granted");
-                    exportData();
-                } else {
-                    Log.d("MyApp", "Permission denied");
-                }
-                break;
-        }
+    private void sendmail(){
+        Intent emailIntent = new Intent(Intent.ACTION_SENDTO);
+        emailIntent.setData(Uri.parse("mailto:"));
+        emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Company Information");
+        emailIntent.putExtra(Intent.EXTRA_TEXT, tvResult.getText().toString());
+        startActivity(Intent.createChooser(emailIntent, "Send email..."));
     }
 
-    private void exportData(){
-        SharedPreferences pref = getSharedPreferences("data", MODE_PRIVATE);
-        String name = pref.getString("name", "");
-        String phone = pref.getString("phone", "");
+    private void exportSynologyDrive(){
+        // Create Retrofit instance
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("https://api.synology.com/") //如有需要可替換URL，以符合使用環境
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
 
-        File folder = new File(Environment.getExternalStorageDirectory(), "MyApp");
-        if (!folder.exists()) {
-            folder.mkdir();
-            Toast.makeText(SecondActivity.this, "make folder successfully!", Toast.LENGTH_SHORT).show();
-        }
-        File csvFile = new File(folder, "company_info.csv");
+        // Create a SynologyDriveService instance
+        SynologyDriveService service = retrofit.create(SynologyDriveService.class);
 
-        try (FileWriter writer = new FileWriter(csvFile)) {
-            writer.write("Name,Phone\n");
-            writer.write(name + "," + phone + "\n");
-            writer.flush();
-            Toast.makeText(SecondActivity.this, "Data exported successfully!", Toast.LENGTH_SHORT).show();
-        } catch (Exception e) {
-            Toast.makeText(SecondActivity.this, "Failed to export data!", Toast.LENGTH_SHORT).show();
-        }
+        String accessTokenValue = "your_access_token";
+        String fileNameValue = "data.csv";
+        String fileContentValue = "Name, Phone\nJohn Doe,123-456-7890";
+
+        RequestBody accessToken = RequestBody.create(MediaType.parse("text/plain"), accessTokenValue);
+        RequestBody action = RequestBody.create(MediaType.parse("text/plain"), "create");
+        RequestBody path = RequestBody.create(MediaType.parse("text/plain"), "/");
+        RequestBody fileName = RequestBody.create(MediaType.parse("text/plain"), fileNameValue);
+        RequestBody fileContent = RequestBody.create(MediaType.parse("text/plain"), fileContentValue);
+
+        // Create a request to upload a file
+        Call<UploadResponse> call = service.uploadFile( accessToken, action, path, fileName, fileContent.getBytes() );
+
+        // Execute the request
+        call.enqueue(new Callback<UploadResponse>() {
+            @Override
+            public void onResponse(Call<UploadResponse> call, Response<UploadResponse> response) {
+                if (response.isSuccessful()) {
+                    Log.d("SecondActivity", "File uploaded successfully");
+                } else {
+                    Log.e("SecondActivity", "Failed to upload file");
+                }
+            }
+
+            @Override
+            public void onFailure(Call<UploadResponse> call, Throwable t) {
+                Log.e("SecondActivity", "Failed to upload file: " + t.getMessage());
+            }
+        });
     }
 }

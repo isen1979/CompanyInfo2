@@ -26,4 +26,6 @@ dependencies {
     })
     compile 'com.android.support:appcompat-v7:26.0.0-alpha1'
     testCompile 'junit:junit:4.12'
+    compile 'com.squareup.retrofit2:retrofit:2.9.0'
+    compile 'com.squareup.retrofit2:converter-gson:2.9.0'
 }
